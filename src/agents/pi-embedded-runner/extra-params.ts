@@ -84,6 +84,9 @@ function createStreamFnWithExtraParams(
   if (cacheRetention) {
     streamParams.cacheRetention = cacheRetention;
   }
+  if (provider === "google-antigravity" || provider === "google-gemini-cli") {
+    (streamParams as any).thinking_process = true;
+  }
 
   if (Object.keys(streamParams).length === 0) {
     return undefined;
